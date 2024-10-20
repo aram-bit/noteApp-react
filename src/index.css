@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after {
+  outline: 0;
+}
+body {
+  background-color: rgb(233, 232, 232);
+}
+.app {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 90%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+  padding: 1rem;
+}
+.header > select {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.add_note {
+  display: grid;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border-bottom: 1px solid grey;
+  padding: 1rem 0;
+}
+.add_note > * {
+  border-radius: 0.5rem;
+  outline: 0;
+  padding: 0.5rem;
+  border: none;
+  font-size: 1.5rem;
+  margin: 0.5rem;
+}
+.add_note > button {
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+.add_note > h3 {
+  text-align: center;
+}
+.notes_center {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.notes_category > button {
+  border: none;
+  font-size: 1rem;
+  color: gray;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: rgb(233, 232, 232);
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.notes_quantity {
+  background-color: rgb(48, 47, 47);
+  border-radius: 100%;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.notes_category {
+  display: flex;
+  justify-content: center;
+  padding: 0.2rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+.notes_list {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.note_single {
+  width: 100%;
+  max-width: 290px;
+  border-radius: 1rem;
+  background-color: white;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 1rem;
+}
+.note_control {
+  display: flex;
+}
+@media screen and (min-width: 768px) {
+  .app {
+    width: 80%;
+  }
+  .main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .add_note {
+    border-bottom: 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .app {
+    width: 60%;
+  }
+}
