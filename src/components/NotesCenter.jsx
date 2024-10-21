@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { TrashIcon } from "@heroicons/react/24/outline";
-function NotesCenter({ notes }) {
+function NotesCenter({ notes, onDeleteNote }) {
   return (
     <div className="notes_center">
       <NotesCategory notes={notes} />
-      <NotesList notes={notes} />
+      <NotesList notes={notes} onDeleteNote={onDeleteNote} />
     </div>
   );
 }
@@ -27,30 +27,38 @@ function NotesCategory({ notes }) {
     </div>
   );
 }
-function NotesList({ notes }) {
+function NotesList({ notes, onDeleteNote }) {
   return (
     <div className="notes_list">
       {notes.map((note) => {
         return (
-          <div className="note_single" key={note.id}>
-            <div className="note_detail">
-              <h4>{note.title}</h4>
-              <p>{note.description}</p>
-              <p>
-                {new Date(note.createdAt).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
-              </p>
-            </div>
-            <div className="note_control">
-              <TrashIcon style={{ width: "1.5rem", cursor: "pointer" }} />
-              <input type="checkbox" />
-            </div>
-          </div>
+          <NoteItem key={note.id} note={note} onDeleteNote={onDeleteNote} />
         );
       })}
+    </div>
+  );
+}
+function NoteItem({ note, onDeleteNote }) {
+  return (
+    <div className="note_single">
+      <div className="note_detail">
+        <h4>{note.title}</h4>
+        <p>{note.desc}</p>
+        <p>
+          {new Date(note.createdAt).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })}
+        </p>
+      </div>
+      <div className="note_control">
+        <TrashIcon
+          style={{ width: "1.5rem", cursor: "pointer" }}
+          onClick={() => onDeleteNote(note.id)}
+        />
+        <input type="checkbox" />
+      </div>
     </div>
   );
 }
