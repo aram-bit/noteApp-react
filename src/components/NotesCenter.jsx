@@ -1,10 +1,14 @@
 /* eslint-disable react/prop-types */
 import { TrashIcon } from "@heroicons/react/24/outline";
-function NotesCenter({ notes, onDeleteNote }) {
+function NotesCenter({ notes, onDeleteNote, onCompleteNote }) {
   return (
     <div className="notes_center">
       <NotesCategory notes={notes} />
-      <NotesList notes={notes} onDeleteNote={onDeleteNote} />
+      <NotesList
+        notes={notes}
+        onDeleteNote={onDeleteNote}
+        onCompleteNote={onCompleteNote}
+      />
     </div>
   );
 }
@@ -27,20 +31,25 @@ function NotesCategory({ notes }) {
     </div>
   );
 }
-function NotesList({ notes, onDeleteNote }) {
+function NotesList({ notes, onDeleteNote, onCompleteNote }) {
   return (
     <div className="notes_list">
       {notes.map((note) => {
         return (
-          <NoteItem key={note.id} note={note} onDeleteNote={onDeleteNote} />
+          <NoteItem
+            key={note.id}
+            note={note}
+            onDeleteNote={onDeleteNote}
+            onCompleteNote={onCompleteNote}
+          />
         );
       })}
     </div>
   );
 }
-function NoteItem({ note, onDeleteNote }) {
+function NoteItem({ note, onDeleteNote, onCompleteNote }) {
   return (
-    <div className="note_single">
+    <div className={`note_single ${note.completed ? "checked" : ""}`}>
       <div className="note_detail">
         <h4>{note.title}</h4>
         <p>{note.desc}</p>
@@ -57,7 +66,7 @@ function NoteItem({ note, onDeleteNote }) {
           style={{ width: "1.5rem", cursor: "pointer" }}
           onClick={() => onDeleteNote(note.id)}
         />
-        <input type="checkbox" />
+        <input type="checkbox" onChange={() => onCompleteNote(note.id)} />
       </div>
     </div>
   );

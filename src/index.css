@@ -115,6 +115,13 @@ body {
 .note_control {
   display: flex;
 }
+.note_single.checked h4{
+text-decoration: line-through;
+opacity: 0.5;
+}
+.note_single.checked p{
+  opacity: 0.5;
+}
 @media screen and (min-width: 768px) {
   .app {
     width: 80%;
