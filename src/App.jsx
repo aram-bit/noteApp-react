@@ -4,6 +4,7 @@ import NotesCenter from "./components/NotesCenter";
 import { useState } from "react";
 function App() {
   const [notes, setNotes] = useState([]);
+  const [sortBy, setSortBy] = useState("latest");
   const handleAddNotes = (newNote) => {
     setNotes((prevNotes) => [...prevNotes, newNote]);
   };
@@ -17,12 +18,14 @@ function App() {
     );
     setNotes(newNotes);
   };
+
   return (
     <div className="app">
-      <Header />
+      <Header notes={notes} sortBy={sortBy} onSort={setSortBy} />
       <div className="main">
         <AddNewNote onAddNotes={handleAddNotes} />
         <NotesCenter
+          sortBy={sortBy}
           notes={notes}
           onDeleteNote={handleDeleteNote}
           onCompleteNote={handleCompleteNote}
