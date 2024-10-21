@@ -2,12 +2,17 @@ import "./App.css";
 import AddNewNote from "./components/AddNewNote";
 import Header from "./components/Header";
 import NotesCenter from "./components/NotesCenter";
+import { useState } from "react";
 function App() {
+  const [notes, setNotes] = useState([]);
+  const handleAddNotes = (newNote) => {
+    setNotes((prevNotes) => [...prevNotes, newNote]);
+  };
   return (
     <div className="app">
       <Header />
       <div className="main">
-        <AddNewNote />
+        <AddNewNote onAddNotes={handleAddNotes} />
         <NotesCenter />
       </div>
     </div>

@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-function AddNewNote() {
+function AddNewNote({onAddNotes}) {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
-  const [notes, setNotes] = useState([]);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title || !desc) return null;
@@ -17,7 +16,7 @@ function AddNewNote() {
     };
     setTitle("");
     setDesc("");
-    setNotes((prevNotes) => [...prevNotes, newNote]);
+    onAddNotes(newNote)
   };
   return (
     <form className="add_note" onSubmit={handleSubmit}>
