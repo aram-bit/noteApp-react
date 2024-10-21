@@ -13,7 +13,7 @@ function App() {
       <Header />
       <div className="main">
         <AddNewNote onAddNotes={handleAddNotes} />
-        <NotesCenter />
+        <NotesCenter notes={notes} />
       </div>
     </div>
   );
