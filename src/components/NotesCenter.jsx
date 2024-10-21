@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { TrashIcon } from "@heroicons/react/24/outline";
 function NotesCenter() {
   return (
@@ -13,7 +14,7 @@ function NotesCategory() {
     <div className="notes_category">
       <button>
         <p>All</p>
-        <span className="notes_quantity">8</span>
+        <span className="notes_quantity">10</span>
       </button>
       <button>
         <p>Completed</p>
@@ -31,22 +32,9 @@ function NotesList() {
     <div className="notes_list">
       <div className="note_single">
         <div className="note_detail">
-          <h4>note one</h4>
-          <p>
-            note description Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, hic?
-          </p>
-          <p>2024/02/03</p>
-        </div>
-        <div className="note_control">
-          <TrashIcon style={{ width: "1.5rem", cursor: "pointer" }} />
-          <input type="checkbox" />
-        </div>
-      </div>
-      <div className="note_single">
-        <div className="note_detail">
-          <h4>note one</h4>
-          <p>note description Lorem, ipsum dolor sit amet</p>
-          <p>2024/02/03</p>
+          <h4>note title</h4>
+          <p>note description</p>
+          <p>2014/02/02</p>
         </div>
         <div className="note_control">
           <TrashIcon style={{ width: "1.5rem", cursor: "pointer" }} />
