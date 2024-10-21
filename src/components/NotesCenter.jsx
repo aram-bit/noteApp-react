@@ -14,6 +14,8 @@ function NotesCenter({ notes, onDeleteNote, onCompleteNote }) {
 }
 export default NotesCenter;
 function NotesCategory({ notes }) {
+  const completedNotes=notes.filter(note=>note.completed);
+  const unCompletedNotes=notes.filter(note=>!note.completed);
   return (
     <div className="notes_category">
       <button>
@@ -22,11 +24,11 @@ function NotesCategory({ notes }) {
       </button>
       <button>
         <p>Completed</p>
-        <span className="notes_quantity">5</span>
+        <span className="notes_quantity">{completedNotes.length}</span>
       </button>
       <button>
         <p>Uncompleted</p>
-        <span className="notes_quantity">3</span>
+        <span className="notes_quantity">{unCompletedNotes.length}</span>
       </button>
     </div>
   );

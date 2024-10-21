@@ -1,4 +1,3 @@
-import "./App.css";
 import AddNewNote from "./components/AddNewNote";
 import Header from "./components/Header";
 import NotesCenter from "./components/NotesCenter";
